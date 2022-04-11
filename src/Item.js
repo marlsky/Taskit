@@ -35,7 +35,7 @@ class Item extends React.Component {
     },
     open: false ,
     
-    // Facilitate reordering of the columns
+  
     columnOrder: ['column-1', 'column-2', 'column-3']
   }
 
@@ -78,7 +78,7 @@ class Item extends React.Component {
       return
     }
 
-    // Moving from one list to another
+   
     const startTaskIds = Array.from(start.taskIds)
     startTaskIds.splice(source.index, 1)
     const newStart = {
@@ -117,18 +117,18 @@ class Item extends React.Component {
     this.setState(prevState => {
       // increment task count
       const newCount = prevState.count + 1;
-      // create new id based on task count
+
       const newId = `task-${newCount}`;
       return {
         count: newCount,
-        // clear input
+    
         newTask: '',
         tasks: {
-          // add to tasks array
+         
           ...prevState.tasks,
           [newId]: { id: newId,title: task.title, content: task.content },
         },
-        // add task id at the end of first column
+   
         columns: {
           ...prevState.columns,
           'column-1': {
