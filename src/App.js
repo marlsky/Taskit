@@ -11,7 +11,7 @@ const App = ()=> {
     gsap.set("h3", {y: -200, opacity: 0});
     gsap.to("h3", {opacity: 1, y: 0, duration: 0.7})
    
-}) 
+}, []) 
   return (
     <div className="App">
       <div className="container">

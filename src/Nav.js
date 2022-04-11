@@ -11,7 +11,7 @@ const Nav = () =>{
         gsap.to(".navigation a", {opacity: 1, x: 0, duration: 0.7})
         gsap.set("h5", {x: -200, opacity: 0});
         gsap.to("h5", {opacity: 1, x: 0, duration: 0.9, stagger: 0.1})
-    }) 
+    }, []) 
     
     
 

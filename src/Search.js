@@ -8,16 +8,18 @@ const Search = () =>{
        
       }
       const handleBlur = () =>{
+        const input = document.querySelector('input')
         const label = document.querySelector('.search label')
         label.classList.remove("focused")
+        input.value = ""
       
       }
 
       useEffect(() => {
         gsap.set(".search", {y: -200, opacity: 0});
         gsap.to(".search", {opacity: 1, y: 0, duration: 1.5})
-       
-    }) 
+        
+    }, []) 
     return(
         <div className="search">
             <label htmlFor="search">Search</label>
