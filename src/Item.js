@@ -45,7 +45,6 @@ class Item extends React.Component {
     if (!destination) {
       return
     }
-
     if (
       destination.droppableId === source.droppableId &&
       destination.index === source.index
@@ -102,7 +101,6 @@ class Item extends React.Component {
       }
     }
     this.setState(newState)
-    
   }
 
   hideModal = () => {
@@ -113,18 +111,13 @@ class Item extends React.Component {
   }
 
   addTask = (task) =>{
-    
     this.setState(prevState => {
-      // increment task count
       const newCount = prevState.count + 1;
-
       const newId = `task-${newCount}`;
       return {
         count: newCount,
-    
         newTask: '',
         tasks: {
-         
           ...prevState.tasks,
           [newId]: { id: newId,title: task.title, content: task.content },
         },
@@ -132,8 +125,8 @@ class Item extends React.Component {
         columns: {
           ...prevState.columns,
           'column-1': {
-            ...prevState.columns['column-1'],
-            taskIds: [...prevState.columns['column-1'].taskIds, newId],
+          ...prevState.columns['column-1'],
+          taskIds: [...prevState.columns['column-1'].taskIds, newId],
           },
         },
       }
@@ -145,36 +138,32 @@ class Item extends React.Component {
     const id = e.target.closest(".container-2")
     id.classList.add("anime")
     const columnId = 'column-3';
-    
     const column = this.state.columns[columnId];
-    
     const columnTaskIds = Array.from(column.taskIds);
+
     columnTaskIds.splice(columnTaskIds.indexOf(taskId), 1);
-    
     const newcolumn = {
-    ...column,
-    taskIds: columnTaskIds,
+      ...column,
+      taskIds: columnTaskIds,
     };
-    var newState = null;
+    let newState = null;
     newState = {
         ...this.state,
-  columns: {
-    ...this.state.columns,
-          [newcolumn.id]: newcolumn
-  }
+      columns: {
+      ...this.state.columns,
+        [newcolumn.id]: newcolumn
+      }
     };
     setTimeout( () => {
       this.setState(newState);
     }, 580)
-}
+  }
 
-componentDidMount(){
+  componentDidMount(){
+    gsap.set(".open-modal", {x: 150});
+   gsap.to(".open-modal", {x: 0, duration: 0.7})
 
-  gsap.set(".open-modal", {x: 150});
-  gsap.to(".open-modal", {x: 0, duration: 0.7})
-  
-  
-}
+  }
   render() {
     
     return (
@@ -188,7 +177,6 @@ componentDidMount(){
             const tasks = column.taskIds.map(
               taskId => this.state.tasks[taskId]
             )
-
             return (
               <Column key={column.id} column={column} tasks={tasks} deleteHandler={this.deleteHandler}/>
             )

@@ -13,9 +13,7 @@ const Nav = () =>{
         gsap.to("h5", {opacity: 1, x: 0, duration: 0.9, stagger: 0.1})
     }, []) 
     
-    
-
-  const moveMarker = (e) => {
+    const moveMarker = (e) => {
         const marker = document.querySelector(".marker")
         marker.style.top = e.target.offsetTop + "px"
         marker.style.height = e.target.offsetHeight + "px"
@@ -23,10 +21,10 @@ const Nav = () =>{
 
     return(
         <div className="sidebar">
-            <a href=""><div className="logo">.Taskit</div></a>
+            <a href="/"><div className="logo">.Taskit</div></a>
             <div className="navigation">
                 <div className="marker"></div>
-                <a href="" onMouseEnter={moveMarker} className="active1"><span className="tasks-nav active2"></span><span className="text active">Tasks</span></a>
+                <a href="/" onMouseEnter={moveMarker} className="active1"><span className="tasks-nav active2"></span><span className="text active">Tasks</span></a>
                 <h5 onMouseEnter={moveMarker}><span className="todo"></span><span className="text" title="Todo">Todo</span></h5>
                 <h5 onMouseEnter={moveMarker}><span className="completed"></span><span className="text" title="Completed">Completed</span></h5>
                 <h5 onMouseEnter={moveMarker}><span className="trash"></span><span className="text" title="Trash">Trash</span></h5>
