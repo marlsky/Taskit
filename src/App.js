@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import Nav from './Nav'
+import Search from './Search'
+import Item from './Item'
+import { useEffect } from "react"
+import gsap from 'gsap'
+
+const App = ()=> {
+
+  useEffect(() => {
+    gsap.set("h3", {y: -200, opacity: 0});
+    gsap.to("h3", {opacity: 1, y: 0, duration: 0.7})
+   
+}) 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <Nav/>
+        <div className="content">
+          <Search/>
+          <div className="box">
+            <h3>Tasks</h3>
+            
+          </div>
+          <Item/>
+        </div>
+        
+      </div>
     </div>
   );
 }
