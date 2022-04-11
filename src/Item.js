@@ -144,7 +144,7 @@ class Item extends React.Component {
         
     const id = e.target.closest(".container-2")
     id.classList.add("anime")
-    var columnId = 'column-3';
+    const columnId = 'column-3';
     
     const column = this.state.columns[columnId];
     
