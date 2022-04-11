@@ -1,2 +1,2 @@
 # Todo React app with Drag and Drop feature
-[link text itself]: http://www.reddit.com
+[http://taskit.ct8.pl/](http://taskit.ct8.pl/)
